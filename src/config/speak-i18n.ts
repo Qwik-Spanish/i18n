@@ -12,16 +12,18 @@ import type {
 
 // 4
 export const config: SpeakConfig = {
-    // lang: https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
-    // currency: https://en.wikipedia.org/wiki/List_of_circulating_currencies
-    // timezone: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-  defaultLocale: { lang: 'en-US', currency: 'USD', timeZone: 'America/Los_Angeles' },
+  // 4.1.
+  defaultLocale: { lang: 'en', currency: 'USD', timeZone: 'America/Los_Angeles' },
+  // 4.2
   supportedLocales: [
     { lang: 'es', currency: 'EUR', timeZone: 'Europe/Madrid' },
-    { lang: 'en-US', currency: 'USD', timeZone: 'America/Los_Angeles' }
+    { lang: 'en', currency: 'USD', timeZone: 'America/Los_Angeles' },
+    { lang: 'eu', currency: 'EUR', timeZone: 'Europe/Madrid' }
   ],
+   // 4.3
   assets: [
-    'app' // Directorio de traducciones que va a estar disponible para compartir textos entre diferentes rutas
+    'app' 
+    // Directorio de traducciones que va a estar disponible para compartir textos entre diferentes rutas
   ]
 };
 

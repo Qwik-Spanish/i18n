@@ -1,5 +1,6 @@
 import { component$, Slot } from '@builder.io/qwik';
-import { loader$ } from '@builder.io/qwik-city';
+import { loader$, RequestHandler } from '@builder.io/qwik-city';
+import { config } from '~/config/speak-i18n';
 
 import Header from '../components/header/header';
 
@@ -28,3 +29,28 @@ export default component$(() => {
     </>
   );
 });
+
+export const onRequest: RequestHandler = ({ request, locale }) => {
+  // 1
+  const cookie = request.headers?.get('cookie');
+  // 2
+  const acceptLanguage = request.headers?.get('accept-language');
+
+  let lang: string | null = null;
+  // 3
+  if (cookie) {
+    const result = new RegExp('(?:^|; )' + encodeURIComponent('locale') + '=([^;]*)').exec(cookie);
+    if (result) {
+      lang = JSON.parse(result[1])['lang'];
+    }
+  }
+  // 4
+  if (!lang) {
+    if (acceptLanguage) {
+      lang = acceptLanguage.split(';')[0]?.split(',')[0];
+    }
+  }
+
+  // 5
+  locale(lang || config.defaultLocale.lang);
+};

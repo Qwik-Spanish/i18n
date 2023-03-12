@@ -1,159 +1,35 @@
-import { component$ } from '@builder.io/qwik';
-import type { DocumentHead } from '@builder.io/qwik-city';
-import { Link } from '@builder.io/qwik-city';
+import { component$, useStylesScoped$ } from '@builder.io/qwik';
+import {
+  $translate as t, // <==== Para ejecutar la traducción de una clave
+  Speak,
+} from 'qwik-speak';
 
-export default component$(() => {
+export const Home = component$(() => {
+  useStylesScoped$(`
+    span {
+      background-color: #d4cfcf
+    }
+  `)
   return (
-    <div>
-      <h1>
-        Welcome to Qwik <span class="lightning">⚡️</span>
-      </h1>
-
-      <ul>
-        <li>
-          Check out the <code>src/routes</code> directory to get started.
-        </li>
-        <li>
-          Add integrations with <code>npm run qwik add</code>.
-        </li>
-        <li>
-          More info about development in <code>README.md</code>
-        </li>
-      </ul>
-
-      <h2>Commands</h2>
-
-      <table class="commands">
-        <tbody>
-          <tr>
-            <td>
-              <code>npm run dev</code>
-            </td>
-            <td>Start the dev server and watch for changes.</td>
-          </tr>
-          <tr>
-            <td>
-              <code>npm run preview</code>
-            </td>
-            <td>Production build and start preview server.</td>
-          </tr>
-          <tr>
-            <td>
-              <code>npm run build</code>
-            </td>
-            <td>Production build.</td>
-          </tr>
-          <tr>
-            <td>
-              <code>npm run qwik add</code>
-            </td>
-            <td>Select an integration to add.</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h2>Add Integrations</h2>
-
-      <table class="commands">
-        <tbody>
-          <tr>
-            <td>
-              <code>npm run qwik add azure-swa</code>
-            </td>
-            <td>
-              <a href="https://learn.microsoft.com/azure/static-web-apps/overview" target="_blank">
-                Azure Static Web Apps
-              </a>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <code>npm run qwik add cloudflare-pages</code>
-            </td>
-            <td>
-              <a href="https://developers.cloudflare.com/pages" target="_blank">
-                Cloudflare Pages Server
-              </a>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <code>npm run qwik add express</code>
-            </td>
-            <td>
-              <a href="https://expressjs.com/" target="_blank">
-                Nodejs Express Server
-              </a>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <code>npm run qwik add netlify-edge</code>
-            </td>
-            <td>
-              <a href="https://docs.netlify.com/" target="_blank">
-                Netlify Edge Functions
-              </a>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <code>npm run qwik add vercel-edge</code>
-            </td>
-            <td>
-              <a href="https://vercel.com/docs/concepts/get-started" target="_blank">
-                Vercel Edge Functions
-              </a>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h2>Community</h2>
-
-      <ul>
-        <li>
-          <span>Questions or just want to say hi? </span>
-          <a href="https://qwik.builder.io/chat" target="_blank">
-            Chat on discord!
-          </a>
-        </li>
-        <li>
-          <span>Follow </span>
-          <a href="https://twitter.com/QwikDev" target="_blank">
-            @QwikDev
-          </a>
-          <span> on Twitter</span>
-        </li>
-        <li>
-          <span>Open issues and contribute on </span>
-          <a href="https://github.com/BuilderIO/qwik" target="_blank">
-            GitHub
-          </a>
-        </li>
-        <li>
-          <span>Watch </span>
-          <a href="https://qwik.builder.io/media/" target="_blank">
-            Presentations, Podcasts, Videos, etc.
-          </a>
-        </li>
-      </ul>
-      <Link class="mindblow" href="/flower/">
-        Blow my mind 🤯
-      </Link>
-      <Link class="todolist" href="/todolist/">
-        TODO demo 📝
-      </Link>
-    </div>
+    <>
+      <h1>{t('app.title')}</h1> (1) 
+      <p>Coge de la carpeta "app" en el idioma seleccionado y la propiedad <b>title</b></p>
+      <p>Esto hará referencia al fichero que generamos posteriormente en <span>public/i18n/_locale_/app.json</span></p>
+      <h3>{t('home.intro')}</h3> (2) 
+      <p>Coge de la carpeta "home" en el idioma seleccionado y la propiedad <b>intro</b></p>
+      <p>Esto hará referencia al fichero que generamos posteriormente en <span>public/i18n/_locale_/home.json</span></p>
+    </>
   );
 });
 
-export const head: DocumentHead = {
-  title: 'Welcome to Qwik',
-  meta: [
-    {
-      name: 'description',
-      content: 'Qwik site description',
-    },
-  ],
-};
+export default component$(() => {
+  return (
+    /**
+     * Añadimos los textos relacionado al componente Home
+     * (Solo se aplicará en componentes hijos)
+     */
+    <Speak assets={['home']}>
+      <Home />
+    </Speak>
+  );
+});

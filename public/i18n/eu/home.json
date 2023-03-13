@@ -1,5 +1,6 @@
 {
   "home": {
+    "defaultValue": "Era lehenetsian zehaztutako balioa da",
     "intro": "Home-ra sarrera"
   }
 }

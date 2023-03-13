@@ -14,6 +14,7 @@ export const Home = component$(() => {
   return (
     <>
       <h1>{t('app.title')}</h1> (1) 
+      <p>Uso de valor por defecto: {t('home.defaultValue@@ESTE ES EL VALOR POR DEFECTO')}</p>
       <p>Coge de la carpeta "app" en el idioma seleccionado y la propiedad <b>title</b></p>
       <p>Esto hará referencia al fichero que generamos posteriormente en <span>public/i18n/_locale_/app.json</span></p>
       <h3>{t('home.intro')}</h3> (2) 

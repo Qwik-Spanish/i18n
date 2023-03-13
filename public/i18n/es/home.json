@@ -1,5 +1,6 @@
 {
   "home": {
+    "defaultValue": "Este es el valor por defecto",
     "intro": "Introducción a Home"
   }
 }

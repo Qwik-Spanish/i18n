@@ -1,5 +1,6 @@
 {
   "home": {
+    "defaultValue": "This is default value",
     "intro": "Home intro"
   }
 }

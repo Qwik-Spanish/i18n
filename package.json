@@ -18,7 +18,8 @@
     "lint": "eslint \"src/**/*.ts*\"",
     "preview": "qwik build preview && vite preview --open",
     "start": "vite --open --mode ssr",
-    "qwik": "qwik"
+    "qwik": "qwik",
+    "qwik-speak-extract": "qwik-speak-extract --supportedLangs=es,eu,en"
   },
   "devDependencies": {
     "@builder.io/qwik": "0.19.2",

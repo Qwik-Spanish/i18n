@@ -1,5 +1,6 @@
 import { component$, Slot } from '@builder.io/qwik';
-import { loader$ } from '@builder.io/qwik-city';
+import { loader$, RequestHandler } from '@builder.io/qwik-city';
+import { config } from '~/config/speak-i18n';
 
 import Header from '../components/header/header';
 
@@ -28,3 +29,9 @@ export default component$(() => {
     </>
   );
 });
+
+export const onRequest: RequestHandler = ({ params, locale }) => {
+  const lang = params.lang;
+
+  locale(lang || config.defaultLocale.lang);
+};

@@ -39,7 +39,7 @@ export const ChangeLocale = component$(() => {
   
     return (
       <div>
-        <div>{t('app.changeLocale@@Change locale')}</div>
+        <div>{t('app.changeLocale')} ({ locale.lang })</div>
         {config.supportedLocales.map(value => (
           <button onClick$={async () => await localizeUrl$(value)}>
             {value.lang}

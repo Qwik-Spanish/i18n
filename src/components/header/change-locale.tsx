@@ -1,4 +1,4 @@
-import { component$, $} from '@builder.io/qwik';
+import { component$, $, useStylesScoped$} from '@builder.io/qwik';
 import { changeLocale, $translate as t, useSpeakContext, useSpeakConfig, SpeakLocale } from 'qwik-speak';
 
 const ONE_HOUR_SECONDS = 3600;
@@ -10,6 +10,16 @@ const ONE_YEAR_SECONDS = 365 * ONE_DAY_SECONDS;     // 31536000
 export const ChangeLocale = component$(() => {
   const ctx = useSpeakContext();
   const config = useSpeakConfig();
+  
+  useStylesScoped$(`
+    button {
+      background-color: var(--qwik-light-blue);
+      margin: 10px 20px 0 0;
+      color: whitesmoke;
+      padding: 10px;
+      min-width: 100px;
+    }
+  `)
 
   const changeLocale$ = $(async (newLocale: SpeakLocale) => {
     await changeLocale(newLocale, ctx);

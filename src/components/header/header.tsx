@@ -7,6 +7,7 @@ export default component$(() => {
   return (
     <header>
       <ChangeLocale />
+      <hr/>
     </header>
   );
 });

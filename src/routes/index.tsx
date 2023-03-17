@@ -1,11 +1,11 @@
-import { component$, useStylesScoped$ } from '@builder.io/qwik';
+import { component$, useStyles$ } from '@builder.io/qwik';
 import {
   $translate as t, // <==== Para ejecutar la traducción de una clave
   Speak,
 } from 'qwik-speak';
 
 export const Home = component$(() => {
-  useStylesScoped$(`
+  useStyles$(`
     span {
       background-color: #d4cfcf
     }

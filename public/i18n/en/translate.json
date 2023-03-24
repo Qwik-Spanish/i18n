@@ -1,0 +1,12 @@
+{
+  "translate": {
+    "arrayValue1": "Value 1 - JSON",
+    "arrayValue2": "Value 2 - JSON",
+    "defaultValue": "This is the default value",
+    "devs": {
+      "one": "{{value}} developer",
+      "other": "{{value}} developers"
+    },
+    "greeting": "¡Hola! Me llamo {{name}}"
+  }
+}

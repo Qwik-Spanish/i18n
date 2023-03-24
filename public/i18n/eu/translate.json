@@ -1,0 +1,12 @@
+{
+  "translate": {
+    "arrayValue1": "Lehen balioa",
+    "arrayValue2": "Bigarren balioa",
+    "defaultValue": "Era lehenetsian zehaztutako balioa",
+    "devs": {
+      "one": "Garatzaile {{value}}",
+      "other": "{{value}} garatzaile"
+    },
+    "greeting": "¡Hola! Me llamo {{name}}"
+  }
+}
